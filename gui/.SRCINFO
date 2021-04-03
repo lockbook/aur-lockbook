@@ -19,7 +19,9 @@ pkgbase = lockbook
 	depends = libepoxy
 	provides = lockbook
 	conflicts = lockbook
-	source = lockbook::git+https://github.com/lockbook/lockbook.git
+	source = git+https://github.com/lockbook/aur-lockbook.git
+	source = git+https://github.com/lockbook/lockbook.git
+	sha256sums = SKIP
 	sha256sums = SKIP
 
 pkgname = lockbook

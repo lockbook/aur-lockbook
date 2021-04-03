@@ -25,10 +25,10 @@ build(){
 }
 
 package() {
-  mv $srcdir/lockbook/clients/linux/target/release/lockbook $srcdir/lockbook/clients/linux/target/release/lockbook-gui
+  mv "$srcdir/lockbook/clients/linux/target/release/lockbook" "$srcdir/lockbook/clients/linux/target/release/lockbook-gui" 
   
-  install -D -m755 $srcdir/lockbook/clients/linux/target/release/lockbook-gui $pkgdir/usr/bin/lockbook-gui
-  install -D -m644 $srcdir/lockbook/graphics/SVGs/dark-1.svg $pkgdir/usr/share/pixmaps/dark-1.svg
-  install -D -m644 $srcdir/aur-lockbook/gui/lockbook.desktop $pkgdir/usr/share/applications/lockbook.desktop
+  install -D -m755 "$srcdir/lockbook/clients/linux/target/release/lockbook-gui" "$pkgdir/usr/bin/lockbook-gui"
+  install -D -m644 "$srcdir/lockbook/graphics/SVGs/dark-1.svg" "$pkgdir/usr/share/pixmaps/dark-1.svg"
+  install -D -m644 "$srcdir/aur-lockbook/gui/lockbook.desktop" "$pkgdir/usr/share/applications/lockbook.desktop"
 }
 

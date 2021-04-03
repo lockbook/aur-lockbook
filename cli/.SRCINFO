@@ -1,7 +1,7 @@
 pkgbase = lockbook-cli
 	pkgdesc = A secure, private, minimal, cross-platform document editor.
 	pkgver = 0.2.9
-	pkgrel = 2
+	pkgrel = 1
 	url = https://github.com/lockbook/lockbook
 	arch = x86_64
 	arch = i686
@@ -11,7 +11,7 @@ pkgbase = lockbook-cli
 	makedepends = git
 	provides = lockbook-cli
 	conflicts = lockbook-cli
-	source = lockbook-cli::git+https://github.com/lockbook/lockbook.git
+	source = git+https://github.com/lockbook/lockbook.git
 	sha256sums = SKIP
 
 pkgname = lockbook-cli
