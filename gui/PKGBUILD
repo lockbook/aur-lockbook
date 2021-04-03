@@ -27,5 +27,12 @@ package() {
   cd $_pkgname/clients/linux
   mv "target/release/lockbook" "target/release/lockbook-gui" 
   install -D -m755 "target/release/lockbook-gui" "$pkgdir/usr/bin/lockbook-gui"
+
+    install -D -m644 "${srcdir}/gui/dark-1.svg" \
+        "${pkgdir}/usr/share/pixmaps/dark-1.svg"
+
+    # DESKTOP FILE
+    /usr/bin/install -D -m644 "${srcdir}/gui/lockbook.desktop" \
+        "${pkgdir}/usr/share/applications/lockbook.desktop"
 }
 
