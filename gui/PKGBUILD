@@ -10,29 +10,25 @@ makedepends=('rust' 'cargo' 'git')
 depends=('gtksourceview3' 'gtk3' 'pango' 'glib2' 'gdk-pixbuf2' 'atk' 'gobject-introspection-runtime' 'libepoxy')
 provides=('lockbook')
 conflicts=('lockbook')
-source=("$_pkgname::git+https://github.com/lockbook/lockbook.git")
-sha256sums=('SKIP')
+source=("git+https://github.com/lockbook/aur-lockbook.git" "git+https://github.com/lockbook/lockbook.git")
+sha256sums=('SKIP' 'SKIP')
 
 pkgver() {
-  cd $_pkgname/clients/cli
+  cd $srcdir/lockbook/clients/cli
   echo "$(grep '^version =' Cargo.toml|head -n1|cut -d\" -f2|cut -d\- -f1)"
 }
 
 build(){
-  cd $_pkgname/clients/linux
+  echo $_pkgname
+  cd $srcdir/lockbook/clients/linux
   cargo build --release --locked
 }
 
 package() {
-  cd $_pkgname/clients/linux
-  mv "target/release/lockbook" "target/release/lockbook-gui" 
-  install -D -m755 "target/release/lockbook-gui" "$pkgdir/usr/bin/lockbook-gui"
-
-    install -D -m644 "${srcdir}/gui/dark-1.svg" \
-        "${pkgdir}/usr/share/pixmaps/dark-1.svg"
-
-    # DESKTOP FILE
-    /usr/bin/install -D -m644 "${srcdir}/gui/lockbook.desktop" \
-        "${pkgdir}/usr/share/applications/lockbook.desktop"
+  mv $srcdir/lockbook/clients/linux/target/release/lockbook $srcdir/lockbook/clients/linux/target/release/lockbook-gui
+  
+  install -D -m755 $srcdir/lockbook/clients/linux/target/release/lockbook-gui $pkgdir/usr/bin/lockbook-gui
+  install -D -m644 $srcdir/lockbook/graphics/SVGs/dark-1.svg $pkgdir/usr/share/pixmaps/dark-1.svg
+  install -D -m644 $srcdir/aur-lockbook/gui/lockbook.desktop $pkgdir/usr/share/applications/lockbook.desktop
 }
 
