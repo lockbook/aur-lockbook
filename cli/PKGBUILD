@@ -1,5 +1,5 @@
-pkgname='lockbook'
-_pkgname="lockbook"
+pkgname='lockbook-cli'
+_pkgname="lockbook-cli"
 pkgver=0.2.9
 pkgrel=2
 arch=('x86_64' 'i686')
@@ -7,8 +7,8 @@ url="https://github.com/lockbook/lockbook"
 pkgdesc="A secure, private, minimal, cross-platform document editor."
 license=('BSD-3-Clause')
 makedepends=('rust' 'cargo' 'git')
-provides=('lockbook')
-conflicts=('lockbook')
+provides=('lockbook-cli')
+conflicts=('lockbook-cli')
 source=("$_pkgname::git+https://github.com/lockbook/lockbook.git")
 sha256sums=('SKIP')
 
@@ -19,10 +19,10 @@ pkgver() {
 
 build(){
   cd $_pkgname/clients/cli
-  env API_URL="http://api.lockbook.app:8000" cargo build --release --locked
+  cargo build --release --locked
 }
 
-package_lockbook() {
+package() {
   cd $_pkgname/clients/cli
   install -D -m755 "target/release/lockbook" "$pkgdir/usr/bin/lockbook"
 }
