@@ -1,7 +1,7 @@
 
 pkgname='lockbook'
 _pkgname="lockbook"
-pkgver=0.9.10
+pkgver=0.9.11
 pkgrel=1
 arch=('any')
 url="https://github.com/lockbook/lockbook"
@@ -16,7 +16,7 @@ groups=('lockbook')
 
 pkgver() {
   cd $srcdir/lockbook/clients/cli
-  echo "0.9.10"
+  echo "0.9.11"
 }
 
 build() {
