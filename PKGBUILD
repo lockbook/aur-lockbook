@@ -1,7 +1,7 @@
 
 pkgname='lockbook'
 _pkgname="lockbook"
-pkgver=25.12.15
+pkgver=26.1.13
 pkgrel=1
 arch=('any')
 url="https://github.com/lockbook/lockbook"
@@ -14,10 +14,11 @@ source=("git+https://github.com/lockbook/lockbook.git#tag=$pkgver")
 sha256sums=('SKIP')
 groups=('lockbook')
 options=(!lto)
+depends=('nfs-utils')
 
 pkgver() {
   cd $srcdir/lockbook/clients/cli
-  echo "25.12.15"
+  echo "26.1.13"
 }
 
 build() {
