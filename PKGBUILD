@@ -1,7 +1,7 @@
 
 pkgname='lockbook'
 _pkgname="lockbook"
-pkgver=26.2.11
+pkgver=26.3.20
 pkgrel=1
 arch=('any')
 url="https://github.com/lockbook/lockbook"
@@ -18,7 +18,7 @@ depends=('nfs-utils')
 
 pkgver() {
   cd $srcdir/lockbook/clients/cli
-  echo "26.2.11"
+  echo "26.3.20"
 }
 
 build() {
